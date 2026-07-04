@@ -4,5 +4,5 @@ typedef struct
 {
     Vector2 tamaño;
     Vector2 posicion;
-    float velocidad;
-} Jugador;
+    bool estado;
+} Ladrillo;
