@@ -1,8 +1,4 @@
 #include <raylib.h>
+#include "../imports/jugador.h"
 
-typedef struct
-{
-    Vector2 tamaño;
-    Vector2 posicion;
-    float velocidad;
-} Jugador;
+//agregar logica de metodos

@@ -1,9 +1,4 @@
 #include <raylib.h>
+#include "../imports/pelota.h"
 
-typedef struct
-{
-    Vector2 posicion;
-    Vector2 velocidad;
-    float radio;
-    bool activa;
-} Pelota;
+// agregar logica de los metodos
