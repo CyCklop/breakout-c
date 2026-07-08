@@ -5,15 +5,15 @@
 
 int main(void)
 {
-    const int anchoVentana = 600;
-    const int altoVentana = 800;
+    const int ancho_ventana = 600;
+    const int alto_ventana = 800;
 
     int filas = 14;
     int columnas = 8;
 
     Ladrillo tablero[filas][columnas];
 
-    InitWindow(anchoVentana, altoVentana, "breakout");
+    InitWindow(ancho_ventana, alto_ventana, "breakout");
 
     SetTargetFPS(60);
 
