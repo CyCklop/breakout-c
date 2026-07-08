@@ -25,7 +25,26 @@ int main(void)
         for (int j = 0; j < columnas; j++)
         {
             tablero[i][j].estado = true;
-            tablero[i][j].color = GREEN;
+
+            switch (i)
+            {
+                case 0:
+                case 1:
+                    tablero[i][j].color = RED;
+                    break;
+                case 2:
+                case 3:
+                    tablero[i][j].color = ORANGE;
+                    break;
+                case 4:
+                case 5:
+                    tablero[i][j].color = GREEN;
+                    break;
+                case 6:
+                case 7:
+                    tablero[i][j].color = YELLOW;
+                    break;
+            }
 
             tablero[i][j].posicion.x = 26 + (j * 55);
             tablero[i][j].posicion.y = 48 + (i * 25);
