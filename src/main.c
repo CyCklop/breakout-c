@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 #include "../includes/ladrillo.h"
+#include "../includes/jugador.h"
 
 int main(void)
 {
@@ -12,6 +13,7 @@ int main(void)
     int columnas = 8;
 
     Ladrillo tablero[filas][columnas];
+    Jugador jugador;
 
     InitWindow(ancho_ventana, alto_ventana, "breakout");
 
@@ -29,6 +31,14 @@ int main(void)
             tablero[i][j].posicion.y = 30 + (i * 25);
 
             tablero[i][j].tamaño = (Vector2){ 50, 20};
+
+            jugador.color = WHITE;
+
+            jugador.velocidad = 0.3;
+            jugador.posicion.x = 280;
+            jugador.posicion.y = 700;
+
+            jugador.tamaño = (Vector2){50, 10};
         }
     }
 
@@ -44,6 +54,8 @@ int main(void)
                     {
                         DrawRectangleV(tablero[i][j].posicion, tablero[i][j].tamaño, tablero[i][j].color);
                     }
+                    DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
+                    mover_jugador(&jugador);
                 }
             }
         EndDrawing();
