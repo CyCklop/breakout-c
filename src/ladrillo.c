@@ -1,8 +1,16 @@
 #include <raylib.h>
+#include <stdbool.h>
 
-typedef struct
+#include "../imports/ladrillo.h"
+
+bool estado_ladrillo(Ladrillo *ladrillo)
 {
-    Vector2 tamaño;
-    Vector2 posicion;
-    bool estado;
-} Ladrillo;
+    if (ladrillo->estado == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

@@ -2,6 +2,7 @@
 #define PELOTA_H
 
 #include <raylib.h>
+#include <stdbool.h>
 
 typedef struct
 {

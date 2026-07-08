@@ -1,7 +1,7 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
-#import <raylib.h>
+#include <raylib.h>
 
 typedef struct
 {
@@ -10,7 +10,6 @@ typedef struct
     float velocidad;
 } Jugador;
 
-// Agregar metodos
-
+void mover_jugador(Jugador *jugador);
 
 #endif
