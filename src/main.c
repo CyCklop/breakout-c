@@ -25,7 +25,7 @@ int main(void)
             tablero[i][j].estado = true;
             tablero[i][j].color = GREEN;
 
-            tablero[i][j].posicion.x = 79 + (j * 55);
+            tablero[i][j].posicion.x = 80 + (j * 55);
             tablero[i][j].posicion.y = 30 + (i * 25);
 
             tablero[i][j].tamaño = (Vector2){ 50, 20};
