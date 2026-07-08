@@ -1,4 +1,4 @@
 #include <raylib.h>
-#include "../imports/jugador.h"
+#include "../includes/jugador.h"
 
 //agregar logica de metodos

@@ -1,4 +1,4 @@
 #include <raylib.h>
-#include "../imports/pelota.h"
+#include "../includes/pelota.h"
 
 // agregar logica de los metodos

@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <stdbool.h>
 
-#include "../imports/ladrillo.h"
+#include "../includes/ladrillo.h"
 
 bool estado_ladrillo(Ladrillo *ladrillo)
 {
