@@ -9,8 +9,8 @@ int main(void)
     const int ancho_ventana = 600;
     const int alto_ventana = 800;
 
-    int filas = 14;
-    int columnas = 8;
+    int filas = 8;
+    int columnas = 10;
 
     Ladrillo tablero[filas][columnas];
     Jugador jugador;
@@ -27,15 +27,15 @@ int main(void)
             tablero[i][j].estado = true;
             tablero[i][j].color = GREEN;
 
-            tablero[i][j].posicion.x = 80 + (j * 55);
-            tablero[i][j].posicion.y = 30 + (i * 25);
+            tablero[i][j].posicion.x = 26 + (j * 55);
+            tablero[i][j].posicion.y = 48 + (i * 25);
 
             tablero[i][j].tamaño = (Vector2){ 50, 20};
 
             jugador.color = WHITE;
 
             jugador.velocidad = 0.3;
-            jugador.posicion.x = 280;
+            jugador.posicion.x = 285;
             jugador.posicion.y = 700;
 
             jugador.tamaño = (Vector2){50, 10};
