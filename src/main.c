@@ -51,16 +51,16 @@ int main(void)
             tablero[i][j].posicion.y = 50 + (i * 25);
 
             tablero[i][j].tamaño = (Vector2){ 50, 20};
-
-            jugador.color = WHITE;
-
-            jugador.velocidad = 5.5f;
-            jugador.posicion.x = 375;
-            jugador.posicion.y = 520;
-
-            jugador.tamaño = (Vector2){70, 15};
         }
     }
+
+    jugador.color = WHITE;
+
+    jugador.velocidad = 5.5f;
+    jugador.posicion.x = 375;
+    jugador.posicion.y = 520;
+
+    jugador.tamaño = (Vector2){70, 15};
 
     while (!WindowShouldClose())
     {
@@ -75,6 +75,17 @@ int main(void)
         else
         {
             mover_jugador(&jugador);
+
+            if (jugador.posicion.x <= 0)
+            {
+                jugador.posicion.x = 0;
+            }
+
+            if (jugador.posicion.x >= (ancho_ventana - jugador.tamaño.x))
+            {                                                        
+                jugador.posicion.x = ancho_ventana - jugador.tamaño.x;
+            }
+
         }
 
         BeginDrawing();
@@ -95,9 +106,9 @@ int main(void)
                         {
                             DrawRectangleV(tablero[i][j].posicion, tablero[i][j].tamaño, tablero[i][j].color);
                         }
-                        DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
                     }
                 }
+                DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
             }
         EndDrawing();
     }
