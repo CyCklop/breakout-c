@@ -100,6 +100,7 @@ int main(void)
             }
 
             calcular_rebote(&pelota, ancho_ventana, alto_ventana);
+            colision_pelota(&jugador, &pelota);
         }
 
         BeginDrawing();
