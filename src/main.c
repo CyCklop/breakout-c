@@ -6,19 +6,20 @@
 
 int main(void)
 {
-    const int ancho_ventana = 600;
-    const int alto_ventana = 800;
+    const int ancho_ventana = 800;
+    const int alto_ventana = 600;
 
     int filas = 8;
     int columnas = 10;
 
     Ladrillo tablero[filas][columnas];
     Jugador jugador;
+    
+    bool menu_juego = true;
 
     InitWindow(ancho_ventana, alto_ventana, "breakout");
 
     SetTargetFPS(60);
-
 
     for (int i = 0; i < filas; i++)
     {
@@ -46,35 +47,56 @@ int main(void)
                     break;
             }
 
-            tablero[i][j].posicion.x = 26 + (j * 55);
-            tablero[i][j].posicion.y = 48 + (i * 25);
+            tablero[i][j].posicion.x = 125 + (j * 55);
+            tablero[i][j].posicion.y = 50 + (i * 25);
 
             tablero[i][j].tamaño = (Vector2){ 50, 20};
 
             jugador.color = WHITE;
 
-            jugador.velocidad = 0.3;
-            jugador.posicion.x = 285;
-            jugador.posicion.y = 700;
+            jugador.velocidad = 5.5f;
+            jugador.posicion.x = 375;
+            jugador.posicion.y = 520;
 
-            jugador.tamaño = (Vector2){50, 10};
+            jugador.tamaño = (Vector2){70, 15};
         }
     }
 
     while (!WindowShouldClose())
     {
+
+        if (menu_juego)
+        {
+            if (IsKeyPressed(KEY_SPACE))
+            {
+                menu_juego = false;
+            }
+        }
+        else
+        {
+            mover_jugador(&jugador);
+        }
+
         BeginDrawing();
             ClearBackground(BLACK);
-            for (int i = 0; i < filas; i++)
+
+            if (menu_juego)
             {
-                for (int j = 0; j < columnas; j++)
+                DrawText("BREAKOUT-C", 250, 86, 48, WHITE);
+                DrawText("Presiona ESPACIO para iniciar", 200, 286, 28, WHITE);
+            }
+            else
+            {
+                for (int i = 0; i < filas; i++)
                 {
-                    if (estado_ladrillo(&tablero[i][j]) == true)
+                    for (int j = 0; j < columnas; j++)
                     {
-                        DrawRectangleV(tablero[i][j].posicion, tablero[i][j].tamaño, tablero[i][j].color);
+                        if (estado_ladrillo(&tablero[i][j]) == true)
+                        {
+                            DrawRectangleV(tablero[i][j].posicion, tablero[i][j].tamaño, tablero[i][j].color);
+                        }
+                        DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
                     }
-                    DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
-                    mover_jugador(&jugador);
                 }
             }
         EndDrawing();
