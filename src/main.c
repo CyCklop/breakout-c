@@ -100,7 +100,15 @@ int main(void)
             }
 
             calcular_rebote(&pelota, ancho_ventana, alto_ventana);
-            colision_pelota(&jugador, &pelota);
+            colision_pelota_jugador(&jugador, &pelota);
+
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    colision_pelota_ladrillo(&tablero[i][j], &pelota);
+                }
+            }
         }
 
         BeginDrawing();

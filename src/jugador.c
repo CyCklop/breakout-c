@@ -15,7 +15,7 @@ void mover_jugador(Jugador *jugador)
     }
 }
 
-void colision_pelota(Jugador *jugador, Pelota *pelota)
+void colision_pelota_jugador(Jugador *jugador, Pelota *pelota)
 {
     Rectangle rect_jugador = {
         jugador->posicion.x,

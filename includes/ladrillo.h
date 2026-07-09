@@ -4,6 +4,8 @@
 #include <raylib.h>
 #include <stdbool.h>
 
+#include "pelota.h"
+
 typedef struct
 {
     Vector2 tamaño;
@@ -13,5 +15,6 @@ typedef struct
 } Ladrillo;
 
 bool estado_ladrillo(Ladrillo *ladrillo);
+void colision_pelota_ladrillo(Ladrillo *ladrillo, Pelota *pelota);
 
 #endif
