@@ -10,8 +10,9 @@ typedef struct
     Vector2 velocidad;
     float radio;
     bool activa;
+    Color color;
 } Pelota;
 
-// añadir metodos
+void calcular_rebote(Pelota *pelota, int ancho_ventana, int alto_ventana);
 
 #endif

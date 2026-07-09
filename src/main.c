@@ -3,6 +3,7 @@
 
 #include "../includes/ladrillo.h"
 #include "../includes/jugador.h"
+#include "../includes/pelota.h"
 
 int main(void)
 {
@@ -14,7 +15,8 @@ int main(void)
 
     Ladrillo tablero[filas][columnas];
     Jugador jugador;
-    
+    Pelota pelota;
+
     bool menu_juego = true;
 
     InitWindow(ancho_ventana, alto_ventana, "breakout");
@@ -61,6 +63,17 @@ int main(void)
     jugador.posicion.y = 520;
 
     jugador.tamaño = (Vector2){70, 15};
+    
+    pelota.color = WHITE;
+
+    pelota.radio = 10.0f;
+    pelota.posicion.x = ancho_ventana / 2.0f;
+    pelota.posicion.y = alto_ventana / 2.0f;
+
+    pelota.velocidad.x = 4.0f;
+    pelota.velocidad.y = -4.0f;
+
+    pelota.activa = true;
 
     while (!WindowShouldClose())
     {
@@ -86,6 +99,7 @@ int main(void)
                 jugador.posicion.x = ancho_ventana - jugador.tamaño.x;
             }
 
+            calcular_rebote(&pelota, ancho_ventana, alto_ventana);
         }
 
         BeginDrawing();
@@ -109,6 +123,10 @@ int main(void)
                     }
                 }
                 DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
+                if (pelota.activa == true)
+                {
+                    DrawCircleV(pelota.posicion, pelota.radio, pelota.color);
+                }
             }
         EndDrawing();
     }
