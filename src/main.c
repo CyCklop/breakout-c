@@ -87,6 +87,26 @@ int main(void)
                 menu_juego = false;
             }
         }
+        else if (menu_perdiste)
+        {
+            if (IsKeyPressed(KEY_SPACE))
+            {
+                jugador.vidas = 3;
+                
+                pelota.activa = true;
+                pelota.posicion.x = ancho_ventana / 2.0f;
+                pelota.posicion.y = alto_ventana / 2.0f;
+
+                for (int i = 0; i < filas; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
+                    {
+                        tablero[i][j].estado = true;
+                    }
+                }
+                menu_perdiste = false;
+            }
+        }
         else
         {
             mover_jugador(&jugador);
@@ -142,6 +162,11 @@ int main(void)
             {
                 DrawText("BREAKOUT-C", 250, 86, 48, WHITE);
                 DrawText("Presiona ESPACIO para iniciar", 200, 286, 28, WHITE);
+            }
+            else if (menu_perdiste)
+            {
+                DrawText("PERDISTE", 280, 86, 48, WHITE);
+                DrawText("Presiona ESPACIO para volver", 200, 286, 28, WHITE);
             }
             else
             {
