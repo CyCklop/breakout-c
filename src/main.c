@@ -18,6 +18,7 @@ int main(void)
     Pelota pelota;
 
     bool menu_juego = true;
+    bool menu_perdiste = false;
 
     InitWindow(ancho_ventana, alto_ventana, "breakout");
 
@@ -55,7 +56,8 @@ int main(void)
             tablero[i][j].tamaño = (Vector2){ 50, 20};
         }
     }
-
+    
+    jugador.vidas = 3;
     jugador.color = WHITE;
 
     jugador.velocidad = 5.5f;
@@ -109,7 +111,29 @@ int main(void)
                     colision_pelota_ladrillo(&tablero[i][j], &pelota);
                 }
             }
+
+            if (pelota.activa == false)
+            {
+                jugador.vidas -= 1;
+
+                if (jugador.vidas > 0)
+                {
+                    pelota.posicion.x = ancho_ventana / 2.0f;
+                    pelota.posicion.y = alto_ventana / 2.0f;
+
+                    pelota.velocidad.x = 4.0f;
+                    pelota.velocidad.y = -4.0f;
+
+                    pelota.activa = true;
+                }
+                else
+                {
+                    menu_perdiste = true;
+                }
+            }
+
         }
+        
 
         BeginDrawing();
             ClearBackground(BLACK);
@@ -131,6 +155,7 @@ int main(void)
                         }
                     }
                 }
+                DrawText(TextFormat("Vidas: %d", jugador.vidas), 100, 6, 40, WHITE);
                 DrawRectangleV(jugador.posicion, jugador.tamaño, jugador.color);
                 if (pelota.activa == true)
                 {

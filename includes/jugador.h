@@ -11,6 +11,7 @@ typedef struct
     Vector2 posicion;
     float velocidad;
     Color color;
+    int vidas;
 } Jugador;
 
 void mover_jugador(Jugador *jugador);
